@@ -6,19 +6,31 @@ An end-to-end data engineering project that transforms retail order data into an
 
 This platform simulates a retail data pipeline that ingests order data, processes it incrementally, validates data quality, generates analytical datasets, and presents key performance indicators through dashboards.
 
+
 ## Architecture
 
-Azure Function (Scheduled Ingestion)  
-↓  
-Azure Data Lake Storage Gen2 (Bronze)  
-↓  
-Azure Databricks + PySpark + Delta Lake  
-↓  
-Silver Data Processing and Gold Aggregations  
-↓  
-Azure SQL Database  
-↓  
-Grafana Dashboard
+```mermaid
+flowchart TD
+    A[Azure Function<br/>Scheduled Order Ingestion]
+    B[ADLS Gen2<br/>Bronze CSV Files]
+    C[Azure Databricks<br/>PySpark Processing]
+    D[Delta Lake<br/>Incremental Silver]
+    E[Gold Aggregations<br/>Parquet]
+    F[Azure SQL Database<br/>Analytics Tables]
+    G[Grafana<br/>Business Dashboards]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+
+    H[GitHub Actions<br/>Automated Tests]
+    H -. CI validation .-> C
+```
+
+The pipeline separates raw ingestion, incremental processing, curated analytics, and visualization. GitHub Actions independently validates the Python tests.
 
 ## Technology Stack
 
