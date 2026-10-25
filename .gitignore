@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+airflow_venv/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+secrets.json
+*.pem
+*.key
+
+# Local data and generated outputs
+data/
+*.csv
+*.parquet
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
