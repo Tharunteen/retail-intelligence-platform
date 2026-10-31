@@ -80,6 +80,4 @@ Credentials and secrets must be stored outside source control. Never commit Azur
 - CI/CD integration.
 - Improved pipeline monitoring and recovery.
 
-## Author
 
-Data Engineering Portfolio Project
